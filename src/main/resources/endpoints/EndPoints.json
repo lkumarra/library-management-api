@@ -1,0 +1,7 @@
+{
+  "loginPath": "/api/v1/login",
+  "token": "/token",
+  "studentPath": "/api/v1/students",
+  "getAllStudents": "/getAllStudents",
+  "getStudentById": "/getStudentById/%s"
+}
