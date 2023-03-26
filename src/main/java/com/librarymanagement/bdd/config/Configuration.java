@@ -5,7 +5,7 @@ import com.librarymanagement.bdd.utils.PropertiesFileReader;
 
 public class Configuration {
 
-    private static PropertiesFileReader propertiesFileReader = new PropertiesFileReader(Constants.configPropertyFile);
+    private static final PropertiesFileReader propertiesFileReader = new PropertiesFileReader(Constants.configPropertyFile);
 
     public static String getJdbcUrl() {
         return propertiesFileReader.getValue("jdbcUrl");

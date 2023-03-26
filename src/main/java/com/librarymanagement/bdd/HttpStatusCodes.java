@@ -1,6 +1,11 @@
 package com.librarymanagement.bdd;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 public class HttpStatusCodes {
+    @NotNull
+    @Contract(pure = true)
     public static Integer getHttpStatusCodeValue(StatusCodesEnum statusCodes){
         switch (statusCodes){
             case OK:

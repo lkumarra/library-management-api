@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.testng.Assert;
 import java.io.FileReader;
+import java.util.Objects;
 
 
 @Slf4j
@@ -23,8 +24,7 @@ public class JsonUtils {
         try {
             FileReader fileReader = new FileReader(filePath);
             JSONTokener token = new JSONTokener(fileReader);
-            JSONObject jsonObject = new JSONObject(token);
-            return jsonObject;
+            return new JSONObject(token);
         }catch (Exception e){
             log.error("Error occurred with error message : {}", e.getMessage());
         }
@@ -34,8 +34,7 @@ public class JsonUtils {
     private JSONObject getJsonObject(String json){
         try {
             JSONTokener token = new JSONTokener(json);
-            JSONObject jsonObject = new JSONObject(token);
-            return jsonObject;
+            return new JSONObject(token);
         }catch (Exception e){
             log.error("Error occurred with error message : {}", e.getMessage());
         }
@@ -48,7 +47,7 @@ public class JsonUtils {
     public String getStringValue(String key) {
         try {
             Assert.assertNotNull(key, "Key can not be null");
-            return getJsonObject().getString(key);
+            return Objects.requireNonNull(getJsonObject()).getString(key);
         } catch (Exception e) {
            logError(key, e.getMessage());
         }
@@ -59,7 +58,7 @@ public class JsonUtils {
         try {
             Assert.assertNotNull(json, "JSON can not be null or empty");
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject(json).getString(key);
+            return Objects.requireNonNull(getJsonObject(json)).getString(key);
         }catch (Exception e){
             logError(key, e.getMessage());
         }
@@ -69,7 +68,7 @@ public class JsonUtils {
     public int getIntegerValue(String key) {
         try {
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject().getInt(key);
+            return Objects.requireNonNull(getJsonObject()).getInt(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }
@@ -80,7 +79,7 @@ public class JsonUtils {
         try {
             Assert.assertNotNull(json, "JSON can not be null or empty");
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject(json).getInt(key);
+            return Objects.requireNonNull(getJsonObject(json)).getInt(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }
@@ -90,7 +89,7 @@ public class JsonUtils {
     public boolean getBooleanValue(String key) {
         try {
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject().getBoolean(key);
+            return Objects.requireNonNull(getJsonObject()).getBoolean(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }
@@ -100,7 +99,7 @@ public class JsonUtils {
         try {
             Assert.assertNotNull(json, "JSON can not be null or empty");
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject(json).getBoolean(key);
+            return Objects.requireNonNull(getJsonObject(json)).getBoolean(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }
@@ -109,7 +108,7 @@ public class JsonUtils {
     public double getDoubleValue(String key) {
         try {
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject().getDouble(key);
+            return Objects.requireNonNull(getJsonObject()).getDouble(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }
@@ -119,7 +118,7 @@ public class JsonUtils {
     public double getDoubleValue(String json, String key) {
         try {
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject(json).getDouble(key);
+            return Objects.requireNonNull(getJsonObject(json)).getDouble(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }
@@ -128,7 +127,7 @@ public class JsonUtils {
     public float getFloatValue(String key) {
         try {
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject().getFloat(key);
+            return Objects.requireNonNull(getJsonObject()).getFloat(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }
@@ -138,7 +137,7 @@ public class JsonUtils {
         try {
             Assert.assertNotNull(json, "JSON can not be null or empty");
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject(json).getFloat(key);
+            return Objects.requireNonNull(getJsonObject(json)).getFloat(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }
@@ -147,7 +146,7 @@ public class JsonUtils {
     public long getLongValue(String key) {
         try {
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject().getLong(key);
+            return Objects.requireNonNull(getJsonObject()).getLong(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }
@@ -158,7 +157,7 @@ public class JsonUtils {
         try {
             Assert.assertNotNull(json, "JSON can not be null or empty");
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject(json).getLong(key);
+            return Objects.requireNonNull(getJsonObject(json)).getLong(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }
@@ -179,7 +178,7 @@ public class JsonUtils {
         try {
             Assert.assertNotNull(json, "JSON can not be null or empty");
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject(json).getJSONObject(key);
+            return Objects.requireNonNull(getJsonObject(json)).getJSONObject(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }
@@ -189,7 +188,7 @@ public class JsonUtils {
     public JSONArray getJSONArray(String key) {
         try {
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject().getJSONArray(key);
+            return Objects.requireNonNull(getJsonObject()).getJSONArray(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }
@@ -200,7 +199,7 @@ public class JsonUtils {
         try {
             Assert.assertNotNull(json, "JSON can not be null or empty");
             Assert.assertNotNull(key, "Key can not be null or empty");
-            return getJsonObject(json).getJSONArray(key);
+            return Objects.requireNonNull(getJsonObject(json)).getJSONArray(key);
         } catch (Exception e) {
             logError(key, e.getMessage());
         }

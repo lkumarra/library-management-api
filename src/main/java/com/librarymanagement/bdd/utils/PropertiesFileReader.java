@@ -10,12 +10,11 @@ import java.util.Properties;
 @Slf4j
 public class PropertiesFileReader {
 
-    private FileReader fileReader;
     private Properties properties;
 
     public PropertiesFileReader(String filePath) {
         try {
-            fileReader = new FileReader(filePath);
+            FileReader fileReader = new FileReader(filePath);
             properties = new Properties();
             properties.load(fileReader);
             log.info("File successfully loaded located at : {}", filePath);

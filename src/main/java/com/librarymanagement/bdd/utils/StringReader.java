@@ -1,6 +1,7 @@
 package com.librarymanagement.bdd.utils;
 
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -19,6 +20,7 @@ public final class StringReader {
 
     }
 
+    @NotNull
     public String getFileData(){
         StringBuffer stringBuffer = new StringBuffer();
         try {
@@ -35,6 +37,7 @@ public final class StringReader {
         return stringBuffer.toString();
     }
 
+    @NotNull
     public String getFileData(String filePath){
         StringBuffer stringBuffer = new StringBuffer();
         try {

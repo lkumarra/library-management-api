@@ -2,7 +2,6 @@ package com.librarymanagement.bdd.api;
 
 import static com.librarymanagement.bdd.config.Configuration.*;
 import com.librarymanagement.bdd.modals.ErrorResponseModal;
-import com.librarymanagement.bdd.modals.ResponseModal;
 import com.librarymanagement.bdd.responsevalidator.ResponseValidator;
 import com.librarymanagement.bdd.utils.RestAssuredUtils;
 

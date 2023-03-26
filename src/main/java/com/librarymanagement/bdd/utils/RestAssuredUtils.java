@@ -326,7 +326,7 @@ public class RestAssuredUtils {
             ObjectMapper objectMapper = new ObjectMapper();
             return (T) objectMapper.readValue(response, clazz);
         } catch (Exception e) {
-            log.error("Error occurred while mapping the class : {} with response : {} with error message : {} ", clazz.getClass(), response, e.getMessage());
+            log.error("Error occurred while mapping the class : {} with response : {} with error message : {} ", clazz, response, e.getMessage());
             return (T) clazz;
         }
     }
@@ -354,11 +354,10 @@ public class RestAssuredUtils {
      * @return Mapped response
      */
     private ResponseModal setResponse(Response response) {
-        ResponseModal responseModal = ResponseModal.builder().
+        return ResponseModal.builder().
                 response(response.asString()).
                 statusCode(response.statusCode()).
                 headers(response.getHeaders()).responseTime(response.time()).build();
-        return responseModal;
     }
 
 }

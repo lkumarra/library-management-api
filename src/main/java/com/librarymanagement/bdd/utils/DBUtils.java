@@ -63,7 +63,7 @@ public class DBUtils {
     public List<Map<String, Object>> selectQueryResult(String query, Objects... arguments) {
         if (Objects.nonNull(jdbcTemplate)) {
             Assert.assertNotNull(query, "Query can not be null or empty.");
-            return jdbcTemplate.queryForList(query, arguments);
+            return jdbcTemplate.queryForList(query, (Object) arguments);
         } else
             return null;
     }
@@ -90,7 +90,7 @@ public class DBUtils {
      */
     public int updateQuery(String query, Objects... arguments) {
         if (Objects.nonNull(jdbcTemplate))
-            return jdbcTemplate.update(query, arguments);
+            return jdbcTemplate.update(query, (Object) arguments);
         else
             return 0;
     }
