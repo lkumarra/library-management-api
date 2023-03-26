@@ -1,9 +1,10 @@
 package com.librarymanagement.bdd.api;
 
 import com.google.common.collect.Maps;
-import com.librarymanagement.bdd.constants.EndPoints;
+import static com.librarymanagement.bdd.constants.EndPoints.*;
 import com.librarymanagement.bdd.modals.GenerateTokenModal;
 import com.librarymanagement.bdd.modals.ResponseModal;
+import static com.librarymanagement.bdd.context.TokenContext.*;
 
 import java.util.Map;
 
@@ -12,7 +13,7 @@ public class GenerateToken extends BaseAPI {
     private ResponseModal responseModal;
 
     public GenerateToken() {
-        super(EndPoints.loginBasePath, EndPoints.loginEndPoint);
+        super(loginBasePath, loginEndPoint);
     }
 
     public void executeGenerateTokenAPI(String clientId, String clientSecret) {
@@ -22,9 +23,12 @@ public class GenerateToken extends BaseAPI {
         responseModal = restAssuredUtils.sendGetRequest(endPoint, map);
         if (responseModal.getStatusCode() == 200) {
             GenerateTokenModal generateToken = restAssuredUtils.mapResponseToClass(responseModal.getResponse(), GenerateTokenModal.class);
-            System.out.println(generateToken.getAccessToken());
-            System.setProperty("token", generateToken.getAccessToken());
+            setToken(generateToken.getAccessToken());
         }
+    }
+
+    public void setInvalidToken(){
+        setToken("InvalidToken");
     }
 
 }

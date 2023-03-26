@@ -11,7 +11,8 @@ import java.util.Map;
 @Slf4j
 public class RestAssuredUtils {
 
-    public RestAssuredUtils() {}
+    public RestAssuredUtils() {
+    }
 
     public RestAssuredUtils(String baseUri) {
         RestAssured.baseURI = baseUri;
@@ -31,7 +32,18 @@ public class RestAssuredUtils {
      * @return Response mapped to {@link ResponseModal}
      */
     public ResponseModal sendGetRequest(String endpoint, String authToken, Map<String, String> headersMap) {
-        Response response = RestAssured.given().log().all().auth().oauth2(authToken).headers(headersMap).get(endpoint);
+        Response response = RestAssured.given()
+                .log()
+                .all()
+                .auth()
+                .oauth2(authToken)
+                .headers(headersMap)
+                .get(endpoint)
+                .then()
+                .log()
+                .all()
+                .extract()
+                .response();
         return setResponse(response);
     }
 
@@ -43,7 +55,16 @@ public class RestAssuredUtils {
      * @return ResponseModal
      */
     public ResponseModal sendGetRequest(String endpoint, Map<String, String> headersMap) {
-        Response response = RestAssured.given().log().all().headers(headersMap).get(endpoint);
+        Response response = RestAssured.given()
+                .log()
+                .all()
+                .headers(headersMap)
+                .get(endpoint)
+                .then()
+                .log()
+                .all()
+                .extract()
+                .response();
         return setResponse(response);
     }
 
@@ -55,7 +76,8 @@ public class RestAssuredUtils {
      * @return Response mapped to {@link ResponseModal}
      */
     public ResponseModal sendGetRequest(String endpoint, String authToken) {
-        Response response = RestAssured.given().log().all().auth().oauth2(authToken).get(endpoint);
+        Response response = RestAssured.given().log().all().auth().oauth2(authToken).when()
+                .get(endpoint).then().log().all().extract().response();
         return setResponse(response);
     }
 
@@ -66,7 +88,10 @@ public class RestAssuredUtils {
      * @return Response mapped to {@link ResponseModal}
      */
     public ResponseModal sendGetRequest(String endpoint) {
-        Response response = RestAssured.given().log().all().get(endpoint);
+        Response response = RestAssured.given()
+                .log().all().when()
+                .get(endpoint).then()
+                .log().all().extract().response();
         return setResponse(response);
     }
 
@@ -80,7 +105,14 @@ public class RestAssuredUtils {
      * @return Response mapped to {@link ResponseModal}
      */
     public ResponseModal sendPostRequest(String endpoint, String authToken, Map<String, String> headersMap, String request) {
-        Response response = RestAssured.given().log().all().auth().oauth2(authToken).headers(headersMap).body(request).post(endpoint);
+        Response response = RestAssured.given().
+                log().all().auth().
+                oauth2(authToken).
+                headers(headersMap).
+                body(request).
+                when().post(endpoint).
+                then().log().all()
+                .extract().response();
         return setResponse(response);
     }
 
@@ -93,7 +125,10 @@ public class RestAssuredUtils {
      * @return Response mapped to {@link ResponseModal}
      */
     public ResponseModal sendPostRequest(String endpoint, Map<String, String> headersMap, String request) {
-        Response response = RestAssured.given().log().all().headers(headersMap).body(request).post(endpoint);
+        Response response = RestAssured.given()
+                .log().all().headers(headersMap)
+                .body(request).when().post(endpoint)
+                .then().log().all().extract().response();
         return setResponse(response);
     }
 
@@ -106,7 +141,10 @@ public class RestAssuredUtils {
      * @return Response mapped to {@link ResponseModal}
      */
     public ResponseModal sendPostRequest(String endpoint, String authToken, String request) {
-        Response response = RestAssured.given().log().all().auth().oauth2(authToken).body(request).post(endpoint);
+        Response response = RestAssured.given()
+                .log().all().auth().oauth2(authToken)
+                .body(request).when().post(endpoint)
+                .then().log().all().extract().response();
         return setResponse(response);
     }
 
@@ -118,7 +156,9 @@ public class RestAssuredUtils {
      * @return Response mapped to {@link ResponseModal}
      */
     public ResponseModal sendPostRequest(String endpoint, String request) {
-        Response response = RestAssured.given().log().all().body(request).post(endpoint);
+        Response response = RestAssured.given()
+                .log().all().body(request).when().post(endpoint)
+                .then().log().all().extract().response();
         return setResponse(response);
     }
 
@@ -132,7 +172,11 @@ public class RestAssuredUtils {
      * @return Response mapped to {@link ResponseModal}
      */
     public ResponseModal sendPutRequest(String endpoint, String authToken, Map<String, String> headersMap, String request) {
-        Response response = RestAssured.given().log().all().auth().oauth2(authToken).headers(headersMap).body(request).put(endpoint);
+        Response response = RestAssured.given()
+                .log().all().auth().
+                oauth2(authToken).headers(headersMap).
+                body(request).when().put(endpoint)
+                .then().log().all().extract().response();
         return setResponse(response);
     }
 
@@ -145,7 +189,18 @@ public class RestAssuredUtils {
      * @return Response mapped to {@link ResponseModal}
      */
     public ResponseModal sendPutRequest(String endpoint, Map<String, String> headersMap, String request) {
-        Response response = RestAssured.given().log().all().headers(headersMap).body(request).put(endpoint);
+        Response response = RestAssured.given()
+                .log()
+                .all()
+                .headers(headersMap)
+                .body(request)
+                .when()
+                .put(endpoint)
+                .then()
+                .log()
+                .all()
+                .extract()
+                .response();
         return setResponse(response);
     }
 
@@ -158,7 +213,17 @@ public class RestAssuredUtils {
      * @return Response Mapped to {@link ResponseModal}
      */
     public ResponseModal sendPutRequest(String endpoint, String authToken, String request) {
-        Response response = RestAssured.given().log().all().auth().oauth2(authToken).body(request).put(endpoint);
+        Response response = RestAssured.given()
+                .log().all().auth()
+                .oauth2(authToken)
+                .body(request)
+                .when()
+                .put(endpoint)
+                .then()
+                .log()
+                .all()
+                .extract()
+                .response();
         return setResponse(response);
     }
 
@@ -170,7 +235,15 @@ public class RestAssuredUtils {
      * @return Response Mapped to {@link ResponseModal}
      */
     public ResponseModal sendPutRequest(String endpoint, String request) {
-        Response response = RestAssured.given().log().all().body(request).put(endpoint);
+        Response response = RestAssured.given()
+                .log()
+                .all()
+                .body(request)
+                .put(endpoint)
+                .then().log()
+                .all()
+                .extract()
+                .response();
         return setResponse(response);
     }
 
@@ -183,7 +256,18 @@ public class RestAssuredUtils {
      * @return Response Mapped to {@link ResponseModal}
      */
     public ResponseModal sendDeleteRequest(String endpoint, String authToken, Map<String, String> headersMap) {
-        Response response = RestAssured.given().log().all().auth().oauth2(authToken).headers(headersMap).delete(endpoint);
+        Response response = RestAssured.given()
+                .log()
+                .all()
+                .auth()
+                .oauth2(authToken)
+                .headers(headersMap)
+                .delete(endpoint)
+                .then()
+                .log()
+                .all()
+                .extract()
+                .response();
         return setResponse(response);
     }
 
@@ -195,7 +279,17 @@ public class RestAssuredUtils {
      * @return Response mapped to {@link ResponseModal}
      */
     public ResponseModal sendDeleteRequest(String endpoint, String authToken) {
-        Response response = RestAssured.given().log().all().auth().oauth2(authToken).delete(endpoint);
+        Response response = RestAssured.given()
+                .log()
+                .all()
+                .auth()
+                .oauth2(authToken)
+                .delete(endpoint)
+                .then()
+                .log()
+                .all()
+                .extract()
+                .response();
         return setResponse(response);
     }
 
@@ -206,7 +300,15 @@ public class RestAssuredUtils {
      * @return Response Mapped to {@link ResponseModal}
      */
     public ResponseModal sendDeleteRequest(String endpoint) {
-        Response response = RestAssured.given().log().all().delete(endpoint);
+        Response response = RestAssured.given()
+                .log()
+                .all()
+                .delete(endpoint)
+                .then()
+                .log()
+                .all()
+                .extract()
+                .response();
         return setResponse(response);
     }
 
@@ -219,7 +321,7 @@ public class RestAssuredUtils {
      * @return Object of the class with mapped response
      */
     @SuppressWarnings("unchecked")
-	public <T> T mapResponseToClass(String response, Class<T> clazz) {
+    public <T> T mapResponseToClass(String response, Class<T> clazz) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             return (T) objectMapper.readValue(response, clazz);

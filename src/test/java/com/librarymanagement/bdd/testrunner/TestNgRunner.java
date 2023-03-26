@@ -9,9 +9,11 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = { "classpath:features" }, glue = { "com.librarymanagement.bdd.hooks","com.librarymanagement.bdd.steps" }, publish = true)
 public class TestNgRunner extends AbstractTestNGCucumberTests {
-	
+
+	public static boolean isRunningFromTestNg = false;
 	@BeforeSuite
 	public void startServer() {
+		isRunningFromTestNg = true;
 		StartAPIServer.startApiServer();
 	}
 

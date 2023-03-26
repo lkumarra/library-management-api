@@ -1,16 +1,20 @@
 package com.librarymanagement.bdd.steps;
 
+import com.librarymanagement.bdd.api.BaseAPI;
 import com.librarymanagement.bdd.api.GetAllStudentsAPI;
+import com.librarymanagement.bdd.context.ScenarioContext;
+import com.librarymanagement.bdd.responsevalidator.ResponseValidatorImpl;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class GetAllStudentsSteps {
 
-    private GetAllStudentsAPI geAllStudents;
+    private final GetAllStudentsAPI geAllStudents;
 
-    public GetAllStudentsSteps(GetAllStudentsAPI geAllStudents){
-        this.geAllStudents = geAllStudents;
+    public GetAllStudentsSteps(ScenarioContext<BaseAPI> scenarioContext, ResponseValidatorImpl responseValidator){
+        this.geAllStudents = new GetAllStudentsAPI(responseValidator);
+        scenarioContext.setContext(BaseAPI.class, this.geAllStudents);
     }
 
     @When("I get all students")

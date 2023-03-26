@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class GenerateTokenModal {
     private String accessToken;
-    private long expiredIn;
-    private long refreshExpiresIn;
+    private Long expiredIn;
+    private Long refreshExpiresIn;
     private String tokenType;
 }

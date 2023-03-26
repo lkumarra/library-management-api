@@ -32,7 +32,7 @@
 		<extentreportadapter.version>2.15.0</extentreportadapter.version>
 		<springJdbc.version>4.3.30.RELEASE</springJdbc.version>
 		<json.version>20190722</json.version>
-		<logbackcore.version>1.4.5</logbackcore.version>
+		<logbackcore.version>1.4.6</logbackcore.version>
 		<sl4j.version>2.0.6</sl4j.version>
 	</properties>
 	<dependencies>
@@ -221,6 +221,11 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
+			<version>${sl4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
 			<version>${sl4j.version}</version>
 		</dependency>
 
