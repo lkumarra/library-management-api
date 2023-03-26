@@ -8,7 +8,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = { "classpath:features" }, glue = { "com.librarymanagement.bdd.hooks","com.librarymanagement.bdd.steps" }, publish = true)
-public class TestNgRunner extends AbstractTestNGCucumberTests {
+public final class TestNgRunner extends AbstractTestNGCucumberTests {
 
 	public static boolean isRunningFromTestNg = false;
 	@BeforeSuite

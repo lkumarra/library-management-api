@@ -8,7 +8,7 @@ import static com.librarymanagement.bdd.context.TokenContext.*;
 
 import java.util.Map;
 
-public class GenerateToken extends BaseAPI {
+public final class GenerateToken extends BaseAPI {
 
     private ResponseModal responseModal;
 

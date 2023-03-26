@@ -4,7 +4,7 @@ import com.google.common.collect.Maps;
 
 import java.util.HashMap;
 
-public class ScenarioContext<T> {
+public final class ScenarioContext<T> {
 
     private static final HashMap<Class<?>, Object> hashMap = Maps.newHashMap();
 

@@ -7,7 +7,7 @@ import com.librarymanagement.bdd.modals.ErrorResponseModal;
 import com.librarymanagement.bdd.modals.ResponseModal;
 import io.cucumber.java.en.Then;
 
-public class ResponseValidateSteps {
+public final class ResponseValidateSteps {
 
     private final BaseAPI baseAPI;
 

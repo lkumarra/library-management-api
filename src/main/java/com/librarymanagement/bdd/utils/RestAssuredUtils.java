@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Map;
 
 @Slf4j
-public class RestAssuredUtils {
+public final class RestAssuredUtils {
 
     public RestAssuredUtils() {
     }

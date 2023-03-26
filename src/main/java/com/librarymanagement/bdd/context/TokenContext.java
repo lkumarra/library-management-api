@@ -1,6 +1,6 @@
 package com.librarymanagement.bdd.context;
 
-public class TokenContext {
+public final class TokenContext {
     private static String tokenGlobal;
 
     public static String getToken() {

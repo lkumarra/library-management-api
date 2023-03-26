@@ -5,7 +5,7 @@ import com.librarymanagement.bdd.helpers.GetAllStudentsHelper;
 import com.librarymanagement.bdd.testrunner.TestNgRunner;
 import io.cucumber.java.Before;
 
-public class Hooks {
+public final class Hooks {
 
     boolean serverAlreadyStarted = false;
     @Before(order = 1)

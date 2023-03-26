@@ -8,7 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class GetAllStudentsSteps {
+public final class GetAllStudentsSteps {
 
     private final GetAllStudentsAPI geAllStudents;
 

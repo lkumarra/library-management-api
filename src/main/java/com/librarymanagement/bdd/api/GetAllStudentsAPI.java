@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-public class GetAllStudentsAPI extends BaseAPI {
+public final class GetAllStudentsAPI extends BaseAPI {
     private ResponseModal responseModal;
     public GetAllStudentsAPI(ResponseValidator responseValidator) {
         super(responseValidator,studentBasePath, getAllStudents);

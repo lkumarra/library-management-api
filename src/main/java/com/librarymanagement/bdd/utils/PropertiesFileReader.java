@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.Properties;
 
 @Slf4j
-public class PropertiesFileReader {
+public final class PropertiesFileReader {
 
     private Properties properties;
 

@@ -10,7 +10,7 @@ import java.util.Objects;
 
 
 @Slf4j
-public class JsonUtils {
+public final class JsonUtils {
 
     private String filePath;
 

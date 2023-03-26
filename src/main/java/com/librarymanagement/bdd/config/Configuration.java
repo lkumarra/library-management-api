@@ -3,7 +3,7 @@ package com.librarymanagement.bdd.config;
 import com.librarymanagement.bdd.constants.Constants;
 import com.librarymanagement.bdd.utils.PropertiesFileReader;
 
-public class Configuration {
+public final class Configuration {
 
     private static final PropertiesFileReader propertiesFileReader = new PropertiesFileReader(Constants.configPropertyFile);
 

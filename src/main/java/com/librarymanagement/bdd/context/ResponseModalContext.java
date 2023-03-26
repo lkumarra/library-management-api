@@ -4,7 +4,7 @@ import com.librarymanagement.bdd.modals.ResponseModal;
 import lombok.Getter;
 import lombok.Setter;
 
-public class ResponseModalContext {
+public final class ResponseModalContext {
 
     private static ResponseModal responseModalGlobal;
 

@@ -5,7 +5,7 @@ import static com.librarymanagement.bdd.config.Configuration.*;
 import io.cucumber.java.en.Given;
 
 
-public class CommonSteps {
+public final class CommonSteps {
 
     private final GenerateToken generateToken;
 

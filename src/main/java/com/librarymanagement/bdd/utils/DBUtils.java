@@ -13,7 +13,7 @@ import java.util.*;
  * This class contains the methods related to Database connection.
  * @Author : Lavendra Kumar Rajput
  */
-public class DBUtils {
+public final class DBUtils {
 
     private JdbcTemplate jdbcTemplate;
 
@@ -45,7 +45,7 @@ public class DBUtils {
      * @param query Query to execute
      * @return List<Map < String, String>>
      */
-    public List<Map<String, Object>> selectQueryResult(String query) {
+    public List<Map<String, Object>> selectQueryResult(final String query) {
         if (Objects.nonNull(jdbcTemplate)) {
             Assert.assertNotNull(query, "Query can not be null or empty.");
             return jdbcTemplate.queryForList(query);
@@ -60,7 +60,7 @@ public class DBUtils {
      * @param arguments Arguments to pass in query
      * @return List<Map < String, String>>
      */
-    public List<Map<String, Object>> selectQueryResult(String query, Objects... arguments) {
+    public List<Map<String, Object>> selectQueryResult(final String query, Objects... arguments) {
         if (Objects.nonNull(jdbcTemplate)) {
             Assert.assertNotNull(query, "Query can not be null or empty.");
             return jdbcTemplate.queryForList(query, (Object) arguments);
@@ -88,7 +88,7 @@ public class DBUtils {
      * @param arguments Arguments to pass in the query
      * @return Rows impacted with query
      */
-    public int updateQuery(String query, Objects... arguments) {
+    public int updateQuery(final String query, Objects... arguments) {
         if (Objects.nonNull(jdbcTemplate))
             return jdbcTemplate.update(query, (Object) arguments);
         else
@@ -101,7 +101,7 @@ public class DBUtils {
      * @param query Query to insert
      * @return Rows impacted with the query
      */
-    public int insertQuery(String query) {
+    public int insertQuery(final String query) {
         if (Objects.nonNull(jdbcTemplate))
             return jdbcTemplate.update(query);
         else
@@ -115,7 +115,7 @@ public class DBUtils {
      * @param arguments Arguments to pass in the query
      * @return Rows impacted with query
      */
-    public int insertQuery(String query, Object... arguments) {
+    public int insertQuery(final String query, Object... arguments) {
         if (Objects.nonNull(jdbcTemplate))
             return jdbcTemplate.update(query, arguments);
         else
@@ -128,7 +128,7 @@ public class DBUtils {
      * @param query Query to delete
      * @return Rows impacted with the query
      */
-    public int deleteQuery(String query) {
+    public int deleteQuery(final String query) {
         if (Objects.nonNull(jdbcTemplate))
             return jdbcTemplate.update(query);
         else
@@ -142,7 +142,7 @@ public class DBUtils {
      * @param arguments Arguments in the query
      * @return Rows impacted with query
      */
-    public int deleteQuery(String query, Object... arguments) {
+    public int deleteQuery(final String query, Object... arguments) {
         if (Objects.nonNull(jdbcTemplate))
             return jdbcTemplate.update(query, arguments);
         else

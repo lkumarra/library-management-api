@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-public class GetAllStudentsHelper {
+public final class GetAllStudentsHelper {
 
     private static final DBUtils dbUtils = new DBUtils(getJdbcUrl(), getUserName(), getPassword());
 
