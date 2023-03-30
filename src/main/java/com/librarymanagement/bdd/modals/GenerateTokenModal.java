@@ -1,10 +1,8 @@
 package com.librarymanagement.bdd.modals;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class GenerateTokenModal {
     private String accessToken;
     private Long expiredIn;
