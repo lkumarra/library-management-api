@@ -8,13 +8,13 @@
 	<name>Library Management Api Automation</name>
 	<description>This project contains automation of api's of library management system</description>
 	<properties>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 		<cucumber.version>7.11.1</cucumber.version>
 		<jaxb.version>4.0.2</jaxb.version>
 		<junit.version>4.13.2</junit.version>
 		<commonio.version>2.6</commonio.version>
-		<restassures.version>4.2.0</restassures.version>
+		<restassures.version>5.4.0</restassures.version>
 		<httpclient.version>4.5.3</httpclient.version>
 		<jackson.version>2.11.0</jackson.version>
 		<poi.version>4.1.1</poi.version>
@@ -34,6 +34,8 @@
 		<json.version>20190722</json.version>
 		<logbackcore.version>1.4.6</logbackcore.version>
 		<sl4j.version>2.0.6</sl4j.version>
+		<SpringJdbc.version>5.3.25</SpringJdbc.version>
+		<plsql.version>42.4.5</plsql.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -213,11 +215,18 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.hospitalmanagement</groupId>
-			<artifactId>hospital-management</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<scope>compile</scope>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${SpringJdbc.version}</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${plsql.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>

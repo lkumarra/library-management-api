@@ -15,17 +15,8 @@ public final class CommonSteps {
 
     @Given("I am a valid user")
     public void i_am_a_valid_user() {
-        generateToken.executeGenerateTokenAPI(getClientId(), getClientSecret());
+        //generateToken.executeGenerateTokenAPI(getClientId(), getClientSecret());
     }
 
-    @Given("I am a valid user with insufficient permissions")
-    public void i_am_a_valid_user_with_insufficient_permissions() {
-        generateToken.executeGenerateTokenAPI(getStudentClientId(), getStudentClientSecret());
-    }
-
-    @Given("I am a invalid user")
-    public void i_am_a_invalid_user() {
-        generateToken.setInvalidToken();
-    }
 
 }

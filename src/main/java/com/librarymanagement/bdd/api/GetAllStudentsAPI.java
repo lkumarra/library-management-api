@@ -20,8 +20,7 @@ public final class GetAllStudentsAPI extends BaseAPI {
     }
 
     public void executeGetAllStudentsAPI() {
-        String authToken = getToken();
-        responseModal = restAssuredUtils.sendGetRequest(endPoint, authToken);
+        responseModal = restAssuredUtils.sendGetRequest(endPoint);
         log.info("Response for endpoint : {} is : {}", endPoint, responseModal.getResponse());
         setResponseModalGlobal(responseModal);
     }

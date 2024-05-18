@@ -22,7 +22,7 @@ public final class StringReader {
 
     @NotNull
     public String getFileData(){
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         try {
             FileReader fileReader = new FileReader(this.filePath);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -39,7 +39,7 @@ public final class StringReader {
 
     @NotNull
     public String getFileData(String filePath){
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         try {
             FileReader fileReader = new FileReader(filePath);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
